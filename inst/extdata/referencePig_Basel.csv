@@ -1,0 +1,52 @@
+##########################################
+## Reference for Sus scrofa. 
+## Inv.nr. 1446 (male; 2-3 years old; life weight: 120 kg).
+## Source:
+## Stopp B, Deschler-Erb S (2018). "Measurements compiled from the reference 
+## collection in the Integrative Prahistorische und Naturwissenschaftliche 
+## Archaologie (IPNA, University of Basel, Switzerland)." 
+## Personal communication, 
+## included permission to publish them as part of the package zoolog.
+##########################################
+TAX;EL;Measure;Standard
+Sus scrofa;Scapula;SLC;28,85
+Sus scrofa;Scapula;GLP;43,95
+Sus scrofa;Scapula;BG;28,80
+Sus scrofa;Humerus;Bp;58,50
+Sus scrofa;Humerus;SD;19,25
+Sus scrofa;Humerus;Bd;47,40
+Sus scrofa;Humerus;BT;35,50
+Sus scrofa;Radius;Bp;34,45
+Sus scrofa;Radius;SD;21,35
+Sus scrofa;Radius;Bd;39,00
+Sus scrofa;Ulna;BPC;25,95
+Sus scrofa;Ulna;DPA;48,15
+Sus scrofa;Ulna;SDO;35,10
+Sus scrofa;Mc 2;Bd;11,85
+Sus scrofa;Mc 3;Bp;22,75
+Sus scrofa;Mc 3;Bd;20,10
+Sus scrofa;Mc 4;Bp;19,40
+Sus scrofa;Mc 4;Bd;18,55
+Sus scrofa;Mc 5;Bd;13,50
+Sus scrofa;Pelvis;LAR;35,10
+Sus scrofa;Pelvis;SH;28,70
+Sus scrofa;Femur;Bp;64,75
+Sus scrofa;Femur;DC;28,40
+Sus scrofa;Femur;Bd;53,00
+Sus scrofa;Tibia;SD;23,25
+Sus scrofa;Tibia;Bd;36,00
+Sus scrofa;Tibia;Bp;57,00
+Sus scrofa;Astragalus;GLl;48,00
+Sus scrofa;Astragalus;GLm;43,70
+Sus scrofa;Calcaneus;GL;91,25
+Sus scrofa;Calcaneus;GB;27,20
+Sus scrofa;Mt 2;Bd;10,25
+Sus scrofa;Mt 3;Bp;16,40
+Sus scrofa;Mt 3;Bd;19,05
+Sus scrofa;Mt 3;LeP;91,75
+Sus scrofa;Mt 4;Bp;17,30
+Sus scrofa;Mt 4;Bd;18,75
+Sus scrofa;Mt 4;LeP;98,15
+Sus scrofa;Mt 5;Bd;11,30
+Sus scrofa;Ph 1;Bp;18,66
+Sus scrofa;Ph 2;Bp;17,93
