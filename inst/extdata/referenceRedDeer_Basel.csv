@@ -1,11 +1,13 @@
 ##########################################
-## Reference for Cervus elaphus. 
-## Inv.nr. 2271 (male; adult).
-## Source:
-## Stopp B, Deschler-Erb S (2018). "Measurements compiled from the reference 
-## collection in the Integrative Prahistorische und Naturwissenschaftliche 
-## Archaologie (IPNA, University of Basel, Switzerland)." 
-## Personal communication, 
+## REFERENCE: Basel
+## *Cervus elaphus*.
+## Inv.nr. 2271 (male; adult) from
+## \insertCite{stopp2018Basel;textual}{zoolog}.
+## SOURCE:
+## Stopp B, Deschler-Erb S (2018). "Measurements compiled from the reference
+## collection in the Integrative Prahistorische und Naturwissenschaftliche
+## Archaologie (IPNA, University of Basel, Switzerland)."
+## Personal communication,
 ## included permission to publish them as part of the package zoolog.
 ##########################################
 TAX;EL;Measure;Standard
@@ -18,7 +20,7 @@ CEEL;Metacarpus;Bd;44,4
 CEEL;Pelvis;LA;55,0
 CEEL;Femur;Bd;76,0
 CEEL;Tibia;Bd;51,5
-CEEL;Astragalus;GLI;58,0
+CEEL;Astragalus;GLl;58,0
 CEEL;Calcaneus;GL;121,0
 CEEL;Metatarsus;Bd;44,6
 CEEL;Phalanx 1 ant./post.;Bp;21,2

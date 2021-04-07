@@ -37,7 +37,7 @@ knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
 
 ## -----------------------------------------------------------------------------
 caprineCategory <- list(ovar = c("sheep", "capra", "oc"))
-dataWithLog=LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLandGLl)
+dataWithLog <- LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLandGLl)
 knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 
 ## -----------------------------------------------------------------------------
@@ -148,11 +148,13 @@ TaxonSiteWidthHist
 
 ## -----------------------------------------------------------------------------
 t.test(Length ~ Site, dataOCStandardized, 
-       subset = Site %in% c("OLD", "ALP"))
+       subset = Site %in% c("OLD", "ALP"),
+       na.action = "na.omit")
 
 ## -----------------------------------------------------------------------------
 t.test(Width ~ Site, dataOCStandardized, 
-       subset = Site %in% c("OLD", "ALP"))
+       subset = Site %in% c("OLD", "ALP"),
+       na.action = "na.omit")
 
 ## ---- message = FALSE---------------------------------------------------------
 library(stats)
