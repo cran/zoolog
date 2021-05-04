@@ -18,7 +18,7 @@ dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz",
                         package = "zoolog")
 data = read.csv2(dataFile,
                  quote = "\"", header = TRUE, na.strings = "",
-                 fileEncoding = "UTF-8",
+                 encoding = "UTF-8",
                  stringsAsFactors = TRUE)
 knitr::kable(head(data)[, -c(6:20,32:64)])
 

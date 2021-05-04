@@ -1,7 +1,7 @@
 Package: zoolog
 Title: Zooarchaeological Analysis with Log-Ratios
-Version: 0.3.0
-Date: 2021-4-06
+Version: 0.3.1
+Date: 2021-5-04
 Authors@R: c(
     person(c("Jose","M"), "Pozo",
            role = c("aut", "cre"),
@@ -37,6 +37,7 @@ Description: Includes functions and reference data to
     <doi:10.1371/journal.pone.0208109>.
 License: GPL-3
 Encoding: UTF-8
+Language: en-GB
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests: testthat, knitr, rmarkdown, ggplot2, stats
@@ -46,7 +47,7 @@ RdMacros: Rdpack
 VignetteBuilder: knitr
 URL: https://josempozo.github.io/zoolog/
 NeedsCompilation: no
-Packaged: 2021-04-07 10:38:33 UTC; jose
+Packaged: 2021-05-04 12:43:02 UTC; jose
 Author: Jose M Pozo [aut, cre] (<https://orcid.org/0000-0002-0759-3510>),
   Silvia Valenzuela-Lamas [aut] (<https://orcid.org/0000-0001-9886-0372>),
   Angela Trentacoste [aut] (<https://orcid.org/0000-0001-7096-5252>),
@@ -55,4 +56,4 @@ Author: Jose M Pozo [aut, cre] (<https://orcid.org/0000-0002-0759-3510>),
     (<https://orcid.org/0000-0002-3778-3315>)
 Maintainer: Jose M Pozo <josmpozo@gmail.com>
 Repository: CRAN
-Date/Publication: 2021-04-07 11:10:02 UTC
+Date/Publication: 2021-05-04 13:10:02 UTC
