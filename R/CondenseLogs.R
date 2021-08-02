@@ -19,7 +19,7 @@
 #' it makes the different measures comparable. For instance, if a bone is
 #' scaled with respect to the reference, so that it homogeneously doubles its
 #' width, then all width related measures
-#' (\emph{Bd}, \emph{BT}, \emph{Bp}, and \emph{SD}) will give the
+#' (\emph{BT}, \emph{Bd}, \emph{Bp}, \emph{SD}, ...) will give the
 #' same log-ratio (\code{log(2)}). In contrast, the
 #' absolute measures are not directly comparable.
 #'
@@ -31,7 +31,7 @@
 #' mean per group, ignoring the non-available measures.
 #' We provide the following by-default group and prioritization:
 #' For lengths, the order of priority is: GL, GLl, GLm, HTC.
-#' For widths, the order of priority is: Bd, BT, Bp, SD, Bfd, Bfp.
+#' For widths, the order of priority is: BT, Bd, Bp, SD, Bfd, Bfp.
 #' This order maximises the robustness and reliability of the measurements,
 #' as priority is given to the most abundant, more replicable, and less age
 #' dependent measurements.
@@ -42,11 +42,15 @@
 #' husbandry in late prehistoric Italy.
 #' PloS one, 13(12), e0208109.
 #'
+#' Alternatively, a user-defined \code{method} can be provided as a function
+#' with a single argument (data.frame) assumed to have as columns the measure
+#' log-ratios determined by the \code{grouping}.
+#'
 #' @inheritParams LogRatios
 #' @param grouping A list of named character vectors. The list includes a vector
 #' per selected group. Each vector gives the group of measurements in order of
 #' priority. By default the groups are \code{Length = c("GL", "GLl", "GLm", "HTC")}
-#' and \code{Width = c("Bd", "BT", "Bp", "SD", "Bfd", "Bfp")}. The order is
+#' and \code{Width = c("BT", "Bd", "Bp", "SD", "Bfd", "Bfp")}. The order is
 #' irrelevant for \code{method = "average"}.
 #' @param method Character string indicating which method to use for extracting
 #' the condensed features. Currently accepted methods: \code{"priority"}
@@ -73,7 +77,7 @@
 #'
 #' ## Extract only width with "average" method:
 #' dataExampleWithSummary2 <- CondenseLogs(dataExampleWithLogs,
-#'                                grouping = list(Width = c("Bd", "BT", "Bp", "SD")),
+#'                                grouping = list(Width = c("BT", "Bd", "Bp", "SD")),
 #'                                method = "average")
 #' head(dataExampleWithSummary2)[, -c(6:20,32:63)]
 
@@ -81,35 +85,50 @@
 CondenseLogs <- function(data,
                          grouping = list(
                              Length = c("GL", "GLl", "GLm", "HTC"),
-                             Width = c("Bd", "BT", "Bp", "SD", "Bfd", "Bfp") ),
+                             Width = c("BT", "Bd", "Bp", "SD", "Bfd", "Bfp") ),
                          method = "priority"
                         ) {
+
+  if(is.character(method) && (method %in% names(condenseMethod)))
+    method <- condenseMethod[[method]]
+  if(!is.function(method))
+    stop(paste0("Not recognized method.\n",
+                "Predefined accepted methods are ",
+                paste0(paste0("\"", names(condenseMethod), "\""),
+                       collapse = ", "), ".\n",
+                "Alternatively, it can be a user defined function."))
+
   summaryMeasures <- names(grouping)
   data[, summaryMeasures] <- NA
   for (sumMeasure in summaryMeasures)
   {
     groupingWithLog <- paste0(logPrefix, grouping[[sumMeasure]])
     logMeasuresInData <- intersect(groupingWithLog, colnames(data))
-    if(method == "priority")
-    {
-      alreadySelected <- FALSE
-      for (logMeasure in logMeasuresInData)
-      {
-        selected <- !alreadySelected & !is.na(data[, logMeasure])
-        data[selected, sumMeasure] <- data[selected, logMeasure]
-        alreadySelected <- alreadySelected | selected
-      }
-    }
-    else if(method == "average")
-    {
-      avLog <- rowMeans(data[, logMeasuresInData], na.rm = TRUE)
-      avLog[is.nan(avLog)] <- NA
-      data[, sumMeasure] <- avLog
-    }
-    else
-    {
-      stop("Not recognized method. It must be \"priority\" or \"average\".")
-    }
+    dataSelected <- as.data.frame(data[, logMeasuresInData])
+    data[, sumMeasure] <- method(dataSelected)
   }
   data
 }
+
+
+condenseMethod <- list(
+  priority = function(data)
+  {
+    alreadySelected <- FALSE
+    res <- rep(NA, nrow(data))
+    for(logMeasure in colnames(data))
+    {
+      selected <- !alreadySelected & !is.na(data[, logMeasure])
+      res[selected] <- data[selected, logMeasure]
+      alreadySelected <- alreadySelected | selected
+    }
+    return(res)
+  },
+
+  average = function(data)
+  {
+    avLog <- rowMeans(data, na.rm = TRUE)
+    avLog[is.nan(avLog)] <- NA
+    return(avLog)
+  }
+)
