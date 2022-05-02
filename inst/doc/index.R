@@ -12,14 +12,19 @@ str(reference, max.level = 1)
 options(knitr.kable.NA = "")
 knitr::kable(referenceSets)
 
+## ---- echo=FALSE--------------------------------------------------------------
+knitr::kable(zoologTaxonomy)
+
+## ---- echo = FALSE------------------------------------------------------------
+options(stringsAsFactors = FALSE)
+
 ## -----------------------------------------------------------------------------
 library(zoolog)
 dataFile <- system.file("extdata", "dataValenzuelaLamas2008.csv.gz", 
                         package = "zoolog")
 data = read.csv2(dataFile,
                  quote = "\"", header = TRUE, na.strings = "",
-                 encoding = "UTF-8",
-                 stringsAsFactors = TRUE)
+                 encoding = "UTF-8")
 knitr::kable(head(data)[, -c(6:20,32:64)])
 
 ## -----------------------------------------------------------------------------
@@ -30,21 +35,24 @@ knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
 AScases <- InCategory(dataWithLog$Os, "astragalus", zoologThesaurus$element)
 knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
 
-## -----------------------------------------------------------------------------
-GLandGLl <- list(c("GL", "GLl"))
-dataWithLog <- LogRatios(data, mergedMeasures = GLandGLl)
+## ---- warning = FALSE---------------------------------------------------------
+GLVariants <- list(c("GL", "GLl", "GLpe"))
+dataWithLog <- LogRatios(data, mergedMeasures = GLVariants)
 knitr::kable(head(dataWithLog[AScases, -c(6:20,32:64)]))
 
-## -----------------------------------------------------------------------------
-caprineCategory <- list(ovar = c("sheep", "capra", "oc"))
-dataWithLog <- LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLandGLl)
+## ---- warning = FALSE---------------------------------------------------------
+caprineCategory <- list(ovar = SubtaxonomySet("caprine"))
+dataWithLog <- LogRatios(data, joinCategories = caprineCategory, mergedMeasures = GLVariants)
 knitr::kable(head(dataWithLog)[, -c(6:20,32:64)])
+
+## -----------------------------------------------------------------------------
+SubtaxonomySet("caprine")
 
 ## -----------------------------------------------------------------------------
 dataWithLogPruned=RemoveNACases(dataWithLog)
 knitr::kable(head(dataWithLogPruned[, -c(6:20,32:64)]))
 
-## ---- eval = FALSE------------------------------------------------------------
+## ---- eval = FALSE, warning = FALSE-------------------------------------------
 #  write.csv2(dataWithLogPruned, "myDataWithLogValues.csv",
 #             quote=FALSE, row.names=FALSE, na="",
 #             fileEncoding="UTF-8")
@@ -59,7 +67,7 @@ knitr::kable(head(dataStandardized)[, -c(6:20,32:64,72:86)])
 
 ## -----------------------------------------------------------------------------
 dataOC <- subset(dataWithSummary, InCategory(Especie, 
-                                             c("sheep", "capra", "oc"),
+                                             SubtaxonomySet("caprine"),
                                              zoologThesaurus$taxon))
 knitr::kable(head(dataOC)[, -c(6:20,32:64)])
 
@@ -108,12 +116,12 @@ ggplot(dataOCStandardized, aes(Width)) +
   scale_y_continuous(breaks = c(0, 10, 20, 30))
 
 ## -----------------------------------------------------------------------------
-levels0 <- levels(dataOCStandardized$Taxon)
+levels0 <- unique(dataOCStandardized$Taxon)
 levels0
 
 ## -----------------------------------------------------------------------------
 dataOCStandardized$Taxon <- factor(dataOCStandardized$Taxon, 
-                                   levels = levels0[c(2,3,1)])
+                                   levels = levels0[c(1,3,2)])
 levels(dataOCStandardized$Taxon)
 
 ## ---- message = FALSE, fig.asp = 0.6, fig.width = 6, fig.align="center"-------
