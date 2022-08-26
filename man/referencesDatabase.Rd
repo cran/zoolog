@@ -16,9 +16,9 @@ Each reference is a data.frame including 4 columns:
 All the measurements are expressed in millimetres.}
 }
 
+An object of class \code{data.frame} with 4 rows and 15 columns.
 
-
-
+An object of class \code{list} of length 15.
 }
 \usage{
 reference
@@ -162,49 +162,60 @@ Adult male European rabbit from Audley End, Essex, UK, curated in the
 reference collection at University of Nottingham Arch department (ID RS139)
 \insertCite{Ameen2021}{zoolog}.}
 }}
+\item{\strong{Canid - \emph{Canis}}}{\describe{
+\item{Russell}{
+\emph{Canis lupus}.
+Hungarian Agricultural Museum:
+Specimen 73.4 (small mature female; probably local origin)
+from \insertCite{russell1993hunting;textual}{zoolog}.}
+}}
 }
 
 The \pkg{zoolog} variable \code{referencesDatabase} collects all these
 references. It is structured as a named list of named lists, following the
-hierarchy described above:\if{html}{\out{<div class="r">}}\preformatted{str(referencesDatabase, max.level = 2)
-}\if{html}{\out{</div>}}\preformatted{## List of 14
-##  $ Bos taurus           :List of 3
-##   ..$ Nieto    :'data.frame':	68 obs. of  4 variables:
-##   ..$ Basel    :'data.frame':	50 obs. of  4 variables:
-##   ..$ Johnstone:'data.frame':	24 obs. of  4 variables:
-##  $ Bos primigenius      :List of 2
-##   ..$ Degerbol:'data.frame':	50 obs. of  4 variables:
-##   ..$ Steppan :'data.frame':	84 obs. of  4 variables:
-##  $ Ovis aries           :List of 2
-##   ..$ Davis  :'data.frame':	23 obs. of  4 variables:
-##   ..$ Clutton:'data.frame':	71 obs. of  4 variables:
-##  $ Ovis orientalis      :List of 2
-##   ..$ Basel   :'data.frame':	36 obs. of  4 variables:
-##   ..$ Uerpmann:'data.frame':	50 obs. of  4 variables:
-##  $ Capra hircus         :List of 2
-##   ..$ Basel  :'data.frame':	35 obs. of  4 variables:
-##   ..$ Clutton:'data.frame':	60 obs. of  4 variables:
-##  $ Capra aegagrus       :List of 1
-##   ..$ Uerpmann:'data.frame':	50 obs. of  4 variables:
-##  $ Sus domesticus       :List of 1
-##   ..$ Albarella:'data.frame':	42 obs. of  4 variables:
-##  $ Sus scrofa           :List of 3
-##   ..$ Basel:'data.frame':	41 obs. of  4 variables:
-##   ..$ Hongo:'data.frame':	96 obs. of  4 variables:
-##   ..$ Payne:'data.frame':	33 obs. of  4 variables:
-##  $ Cervus elaphus       :List of 1
-##   ..$ Basel:'data.frame':	14 obs. of  4 variables:
-##  $ Dama mesopotamica    :List of 1
-##   ..$ Haifa:'data.frame':	60 obs. of  4 variables:
-##  $ Gazella gazella      :List of 1
-##   ..$ Haifa:'data.frame':	63 obs. of  4 variables:
-##  $ Equus asinus         :List of 1
-##   ..$ Haifa:'data.frame':	48 obs. of  4 variables:
-##  $ Equus caballus       :List of 1
-##   ..$ Johnstone:'data.frame':	75 obs. of  4 variables:
-##  $ Oryctolagus cuniculus:List of 1
-##   ..$ Nottingham:'data.frame':	58 obs. of  4 variables:
-}
+hierarchy described above:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{str(referencesDatabase, max.level = 2)
+#> List of 15
+#>  $ Bos taurus           :List of 3
+#>   ..$ Nieto    :'data.frame':	68 obs. of  4 variables:
+#>   ..$ Basel    :'data.frame':	50 obs. of  4 variables:
+#>   ..$ Johnstone:'data.frame':	24 obs. of  4 variables:
+#>  $ Bos primigenius      :List of 2
+#>   ..$ Degerbol:'data.frame':	50 obs. of  4 variables:
+#>   ..$ Steppan :'data.frame':	84 obs. of  4 variables:
+#>  $ Ovis aries           :List of 2
+#>   ..$ Davis  :'data.frame':	23 obs. of  4 variables:
+#>   ..$ Clutton:'data.frame':	71 obs. of  4 variables:
+#>  $ Ovis orientalis      :List of 2
+#>   ..$ Basel   :'data.frame':	36 obs. of  4 variables:
+#>   ..$ Uerpmann:'data.frame':	50 obs. of  4 variables:
+#>  $ Capra hircus         :List of 2
+#>   ..$ Basel  :'data.frame':	35 obs. of  4 variables:
+#>   ..$ Clutton:'data.frame':	60 obs. of  4 variables:
+#>  $ Capra aegagrus       :List of 1
+#>   ..$ Uerpmann:'data.frame':	50 obs. of  4 variables:
+#>  $ Sus domesticus       :List of 1
+#>   ..$ Albarella:'data.frame':	42 obs. of  4 variables:
+#>  $ Sus scrofa           :List of 3
+#>   ..$ Basel:'data.frame':	41 obs. of  4 variables:
+#>   ..$ Hongo:'data.frame':	96 obs. of  4 variables:
+#>   ..$ Payne:'data.frame':	33 obs. of  4 variables:
+#>  $ Cervus elaphus       :List of 1
+#>   ..$ Basel:'data.frame':	14 obs. of  4 variables:
+#>  $ Dama mesopotamica    :List of 1
+#>   ..$ Haifa:'data.frame':	60 obs. of  4 variables:
+#>  $ Gazella gazella      :List of 1
+#>   ..$ Haifa:'data.frame':	63 obs. of  4 variables:
+#>  $ Equus asinus         :List of 1
+#>   ..$ Haifa:'data.frame':	48 obs. of  4 variables:
+#>  $ Equus caballus       :List of 1
+#>   ..$ Johnstone:'data.frame':	75 obs. of  4 variables:
+#>  $ Oryctolagus cuniculus:List of 1
+#>   ..$ Nottingham:'data.frame':	58 obs. of  4 variables:
+#>  $ Canis lupus          :List of 1
+#>   ..$ Russell:'data.frame':	77 obs. of  4 variables:
+}\if{html}{\out{</div>}}
 }
 
 \section{Reference Sets}{
@@ -214,13 +225,15 @@ zooarchaeological data to be analysed includes several taxa. Thus, the
 reference dataframe should include one reference standard for each relevant
 taxon.
 The \pkg{zoolog} variable \code{referenceSets} defines four possible
-references:\if{html}{\out{<div class="r">}}\preformatted{referenceSets
-}\if{html}{\out{</div>}}\tabular{lllllllllllllll}{
-    \tab Bos taurus \tab Bos primigenius \tab Ovis aries \tab Ovis orientalis \tab Capra hircus \tab Capra aegagrus \tab Sus domesticus \tab Sus scrofa \tab Cervus elaphus \tab Dama mesopotamica \tab Gazella gazella \tab Equus asinus \tab Equus caballus \tab Oryctolagus cuniculus \cr
-   NietoDavisAlbarella \tab Nieto \tab  \tab Davis \tab  \tab  \tab  \tab Albarella \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
-   Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab  \tab  \tab  \cr
-   Combi \tab Nieto \tab  \tab Clutton \tab  \tab Clutton \tab  \tab  \tab Basel \tab Basel \tab Haifa \tab Haifa \tab Haifa \tab Johnstone \tab Nottingham \cr
-   Groningen \tab  \tab Degerbol \tab  \tab Uerpmann \tab  \tab Uerpmann \tab  \tab Hongo \tab  \tab  \tab  \tab  \tab  \tab  \cr
+references:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{referenceSets
+}\if{html}{\out{</div>}}\tabular{llllllllllllllll}{
+    \tab Bos taurus \tab Bos primigenius \tab Ovis aries \tab Ovis orientalis \tab Capra hircus \tab Capra aegagrus \tab Sus domesticus \tab Sus scrofa \tab Cervus elaphus \tab Dama mesopotamica \tab Gazella gazella \tab Equus asinus \tab Equus caballus \tab Oryctolagus cuniculus \tab Canis lupus \cr
+   NietoDavisAlbarella \tab Nieto \tab  \tab Davis \tab  \tab  \tab  \tab Albarella \tab  \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
+   Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab Basel \tab Basel \tab  \tab  \tab  \tab  \tab  \tab  \cr
+   Combi \tab Nieto \tab  \tab Clutton \tab  \tab Clutton \tab  \tab  \tab Basel \tab Basel \tab Haifa \tab Haifa \tab Haifa \tab Johnstone \tab Nottingham \tab Russell \cr
+   Groningen \tab  \tab Degerbol \tab  \tab Uerpmann \tab  \tab Uerpmann \tab  \tab Hongo \tab  \tab  \tab  \tab  \tab  \tab  \tab  \cr
 }
 
 
@@ -231,29 +244,31 @@ taking the selected taxon-specific references from the
 \code{referencesDatabase}.
 
 The \pkg{zoolog} variable \code{reference} is a named list including the
-references defined by \code{referenceSets}:\if{html}{\out{<div class="r">}}\preformatted{str(reference)
-}\if{html}{\out{</div>}}\preformatted{## List of 4
-##  $ NietoDavisAlbarella:'data.frame':	133 obs. of  4 variables:
-##   ..$ TAX     : Factor w/ 3 levels "bota","ovar",..: 1 1 1 1 1 1 1 1 1 1 ...
-##   ..$ EL      : Factor w/ 27 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...
-##   ..$ Measure : Factor w/ 26 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...
-##   ..$ Standard: num [1:133] 259 234 78.3 90.2 29 ...
-##  $ Basel              :'data.frame':	176 obs. of  4 variables:
-##   ..$ TAX     : Factor w/ 5 levels "BOTA","Ovis orientalis",..: 1 1 1 1 1 1 1 1 1 1 ...
-##   ..$ EL      : Factor w/ 28 levels "Astragalus","Calcaneus",..: 14 14 14 14 5 5 5 13 13 13 ...
-##   ..$ Measure : Factor w/ 26 levels "BFd","BFp","BG",..: 21 13 18 3 5 4 19 6 19 5 ...
-##   ..$ Standard: num [1:176] 65.9 83 66.9 58.1 95.3 ...
-##  $ Combi              :'data.frame':	558 obs. of  4 variables:
-##   ..$ TAX     : Factor w/ 10 levels "bota","OVAR",..: 1 1 1 1 1 1 1 1 1 1 ...
-##   ..$ EL      : Factor w/ 56 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...
-##   ..$ Measure : Factor w/ 65 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...
-##   ..$ Standard: num [1:558] 259 234 78.3 90.2 29 ...
-##  $ Groningen          :'data.frame':	246 obs. of  4 variables:
-##   ..$ TAX     : Factor w/ 4 levels "Bos primigenius",..: 1 1 1 1 1 1 1 1 1 1 ...
-##   ..$ EL      : Factor w/ 23 levels "Astragalus","Calcaneus",..: 13 13 13 5 5 5 5 5 12 12 ...
-##   ..$ Measure : Factor w/ 45 levels "BFp","BG","BT",..: 14 12 2 8 9 4 3 13 8 5 ...
-##   ..$ Standard: num [1:246] 69 70 60 359 309 97 89 46 320 100 ...
-}
+references defined by \code{referenceSets}:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{str(reference)
+#> List of 4
+#>  $ NietoDavisAlbarella:'data.frame':	133 obs. of  4 variables:
+#>   ..$ TAX     : Factor w/ 3 levels "bota","ovar",..: 1 1 1 1 1 1 1 1 1 1 ...
+#>   ..$ EL      : Factor w/ 27 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...
+#>   ..$ Measure : Factor w/ 26 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...
+#>   ..$ Standard: num [1:133] 259 234 78.3 90.2 29 ...
+#>  $ Basel              :'data.frame':	176 obs. of  4 variables:
+#>   ..$ TAX     : Factor w/ 5 levels "BOTA","Ovis orientalis",..: 1 1 1 1 1 1 1 1 1 1 ...
+#>   ..$ EL      : Factor w/ 28 levels "Astragalus","Calcaneus",..: 14 14 14 14 5 5 5 13 13 13 ...
+#>   ..$ Measure : Factor w/ 26 levels "BFd","BFp","BG",..: 21 13 18 3 5 4 19 6 19 5 ...
+#>   ..$ Standard: num [1:176] 65.9 83 66.9 58.1 95.3 ...
+#>  $ Combi              :'data.frame':	635 obs. of  4 variables:
+#>   ..$ TAX     : Factor w/ 11 levels "bota","OVAR",..: 1 1 1 1 1 1 1 1 1 1 ...
+#>   ..$ EL      : Factor w/ 69 levels "AS","CAL","FE",..: 4 4 4 4 4 4 4 4 4 11 ...
+#>   ..$ Measure : Factor w/ 83 levels "BFd","BFp","BT",..: 8 9 5 7 13 4 3 12 6 8 ...
+#>   ..$ Standard: num [1:635] 259 234 78.3 90.2 29 ...
+#>  $ Groningen          :'data.frame':	246 obs. of  4 variables:
+#>   ..$ TAX     : Factor w/ 4 levels "Bos primigenius",..: 1 1 1 1 1 1 1 1 1 1 ...
+#>   ..$ EL      : Factor w/ 23 levels "Astragalus","Calcaneus",..: 13 13 13 5 5 5 5 5 12 12 ...
+#>   ..$ Measure : Factor w/ 45 levels "BFp","BG","BT",..: 14 12 2 8 9 4 3 13 8 5 ...
+#>   ..$ Standard: num [1:246] 69 70 60 359 309 97 89 46 320 100 ...
+}\if{html}{\out{</div>}}
 
 \code{reference$Combi} includes the most comprehensive reference for each
 species so that more measurements can be considered. It is the default
@@ -276,55 +291,59 @@ them:
 \code{referencesDatabase}.}
 \item{...}{A csv file for each taxon-specific reference, as named in
 \code{referencesDatabase.csv}.}
-}\if{html}{\out{<div class="r">}}\preformatted{utils::read.csv2(system.file("extdata", "referencesDatabase.csv",
-                             package = "zoolog"))
-}\if{html}{\out{</div>}}\preformatted{##                              Genus                 Taxon     Source
-## 1                   Cattle - *Bos*            Bos taurus      Nieto
-## 2                   Cattle - *Bos*            Bos taurus      Basel
-## 3                   Cattle - *Bos*            Bos taurus  Johnstone
-## 4                   Cattle - *Bos*       Bos primigenius   Degerbol
-## 5                   Cattle - *Bos*       Bos primigenius    Steppan
-## 6                   Sheep - *Ovis*            Ovis aries      Davis
-## 7                   Sheep - *Ovis*            Ovis aries    Clutton
-## 8                   Sheep - *Ovis*       Ovis orientalis      Basel
-## 9                   Sheep - *Ovis*       Ovis orientalis   Uerpmann
-## 10                  Goat - *Capra*          Capra hircus      Basel
-## 11                  Goat - *Capra*          Capra hircus    Clutton
-## 12                  Goat - *Capra*        Capra aegagrus   Uerpmann
-## 13                     Pig - *Sus*        Sus domesticus  Albarella
-## 14                     Pig - *Sus*            Sus scrofa      Basel
-## 15                     Pig - *Sus*            Sus scrofa      Hongo
-## 16                     Pig - *Sus*            Sus scrofa      Payne
-## 17             Red deer - *Cervus*        Cervus elaphus      Basel
-## 18            Fallow deer - *Dama*     Dama mesopotamica      Haifa
-## 19             Gazelle - *Gazella*       Gazella gazella      Haifa
-## 20                 Equid - *Equus*          Equus asinus      Haifa
-## 21                 Equid - *Equus*        Equus caballus  Johnstone
-## 22 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham
-##                          Filename
-## 1       referenceCattle_Nieto.csv
-## 2       referenceCattle_Basel.csv
-## 3   referenceCattle_Johnstone.csv
-## 4    referenceCattle_Degerbol.csv
-## 5     referenceCattle_Steppan.csv
-## 6        referenceSheep_Davis.csv
-## 7      referenceSheep_Clutton.csv
-## 8        referenceSheep_Basel.csv
-## 9     referenceSheep_Uerpmann.csv
-## 10        referenceGoat_Basel.csv
-## 11      referenceGoat_Clutton.csv
-## 12     referenceGoat_Uerpmann.csv
-## 13     referencePig_Albarella.csv
-## 14         referencePig_Basel.csv
-## 15         referencePig_Hongo.csv
-## 16         referencePig_Payne.csv
-## 17     referenceRedDeer_Basel.csv
-## 18        referenceDama_Haifa.csv
-## 19     referenceGazelle_Haifa.csv
-## 20       referenceEquid_Haifa.csv
-## 21   referenceEquid_Johnstone.csv
-## 22 referenceRabbit_Nottingham.csv
 }
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{utils::read.csv2(system.file("extdata", "referencesDatabase.csv",
+                             package = "zoolog"))
+#>                              Genus                 Taxon     Source
+#> 1                   Cattle - *Bos*            Bos taurus      Nieto
+#> 2                   Cattle - *Bos*            Bos taurus      Basel
+#> 3                   Cattle - *Bos*            Bos taurus  Johnstone
+#> 4                   Cattle - *Bos*       Bos primigenius   Degerbol
+#> 5                   Cattle - *Bos*       Bos primigenius    Steppan
+#> 6                   Sheep - *Ovis*            Ovis aries      Davis
+#> 7                   Sheep - *Ovis*            Ovis aries    Clutton
+#> 8                   Sheep - *Ovis*       Ovis orientalis      Basel
+#> 9                   Sheep - *Ovis*       Ovis orientalis   Uerpmann
+#> 10                  Goat - *Capra*          Capra hircus      Basel
+#> 11                  Goat - *Capra*          Capra hircus    Clutton
+#> 12                  Goat - *Capra*        Capra aegagrus   Uerpmann
+#> 13                     Pig - *Sus*        Sus domesticus  Albarella
+#> 14                     Pig - *Sus*            Sus scrofa      Basel
+#> 15                     Pig - *Sus*            Sus scrofa      Hongo
+#> 16                     Pig - *Sus*            Sus scrofa      Payne
+#> 17             Red deer - *Cervus*        Cervus elaphus      Basel
+#> 18            Fallow deer - *Dama*     Dama mesopotamica      Haifa
+#> 19             Gazelle - *Gazella*       Gazella gazella      Haifa
+#> 20                 Equid - *Equus*          Equus asinus      Haifa
+#> 21                 Equid - *Equus*        Equus caballus  Johnstone
+#> 22 European rabbit - *Oryctolagus* Oryctolagus cuniculus Nottingham
+#> 23                 Canid - *Canis*           Canis lupus    Russell
+#>                          Filename
+#> 1       referenceCattle_Nieto.csv
+#> 2       referenceCattle_Basel.csv
+#> 3   referenceCattle_Johnstone.csv
+#> 4    referenceCattle_Degerbol.csv
+#> 5     referenceCattle_Steppan.csv
+#> 6        referenceSheep_Davis.csv
+#> 7      referenceSheep_Clutton.csv
+#> 8        referenceSheep_Basel.csv
+#> 9     referenceSheep_Uerpmann.csv
+#> 10        referenceGoat_Basel.csv
+#> 11      referenceGoat_Clutton.csv
+#> 12     referenceGoat_Uerpmann.csv
+#> 13     referencePig_Albarella.csv
+#> 14         referencePig_Basel.csv
+#> 15         referencePig_Hongo.csv
+#> 16         referencePig_Payne.csv
+#> 17     referenceRedDeer_Basel.csv
+#> 18        referenceDama_Haifa.csv
+#> 19     referenceGazelle_Haifa.csv
+#> 20       referenceEquid_Haifa.csv
+#> 21   referenceEquid_Johnstone.csv
+#> 22 referenceRabbit_Nottingham.csv
+#> 23     referenceCanid_Russell.csv
+}\if{html}{\out{</div>}}
 }
 
 \section{Acknowledgement}{
@@ -344,12 +363,12 @@ We thank Claudia Minniti (University of Salento) for providing Johnstone's
 reference for cattle \insertCite{johnstone2002late}{zoolog}.
 
 We are also grateful to Sierra Harding and Nimrod Marom (University of Haifa)
-for providing the Haifa standard measurements for donkey, gazelle, and
-fallow deer \insertCite{Harding2021}{zoolog}.
+for providing the Haifa standard measurements for donkey, mountain gazelle,
+and Persian fallow deer \insertCite{Harding2021}{zoolog}.
 
 We thank Carly Ameen and Helene Benkert (University of Exeter) for providing
-references for horse \insertCite{johnstone2004biometric}{zoolog} and rabbit
-\insertCite{Ameen2021}{zoolog}.
+references for horse \insertCite{johnstone2004biometric}{zoolog} and
+European rabbit \insertCite{Ameen2021}{zoolog}.
 
 We thank Mikolaj Lisowski (University of York) for pointing to the existence
 of the improved reference for Bos primigenius
